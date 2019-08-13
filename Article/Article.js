@@ -86,14 +86,14 @@ const data = [
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
   },
-  {
+  { /* Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new artibl*/
     title: '37 Companies That Hire Coding Bootcamp Graduates',
     date: 'July 1st, 2019',
     firstParagraph: `The real final assignment in any coding bootcamp isn't a capstone project or an app for your portfolio—it's your job search.
-                     While some coding bootcamps have extensive partnership programs to help place their graduates, many still rely on graduates 
-                     to apply to jobs on their own. Unfortunately, applying to jobs as a new bootcamp graduate is tough. Companies don't always 
-                     advertise whether or not they hire coding bootcamp graduates as a policy, and because of this, you can waste days sending 
-                     applications to companies that are rejecting you without thought. `,
+      While some coding bootcamps have extensive partnership programs to help place their graduates, many still rely on graduates 
+      to apply to jobs on their own. Unfortunately, applying to jobs as a new bootcamp graduate is tough. Companies don't always 
+      advertise whether or not they hire coding bootcamp graduates as a policy, and because of this, you can waste days sending 
+      applications to companies that are rejecting you without thought. `,
 
     secondParagraph: `To provide some transparency, we went through AngelList data and curated a selection of companies with open jobs on AngelList 
     who have hired a fresh bootcamp graduate in the past.`,
@@ -129,6 +129,7 @@ const secondP = document.createElement('p');
 const thirdP = document.createElement('p');
 const span = document.createElement('span');
 
+
 article.classList.add('article');
 articleDate.classList.add('date');
 span.classList.add('expandButton');
@@ -153,7 +154,6 @@ span.addEventListener('click', () => article.classList.toggle('article-open'));
 /* Step 3: return the entire component.*/
 return article;
 }
-
 
 /*  Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.*/
 
