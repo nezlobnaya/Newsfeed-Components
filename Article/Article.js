@@ -129,6 +129,8 @@ const secondP = document.createElement('p');
 const thirdP = document.createElement('p');
 const span = document.createElement('span');
 
+article.style.overflow = 'auto'
+
 
 article.classList.add('article');
 articleDate.classList.add('date');
