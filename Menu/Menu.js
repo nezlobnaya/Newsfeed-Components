@@ -38,6 +38,7 @@ let menuItems = [
 
 const menuBtn = document.querySelector('.menu-button')
 const header = document.querySelector('.header')
+
 function menuMaker(menuItems) {
 
 let menu = document.createElement('div')

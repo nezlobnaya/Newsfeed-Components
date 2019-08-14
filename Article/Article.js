@@ -150,7 +150,12 @@ span.textContent = 'Read more';
 
 /* Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.*/
 span.addEventListener('click', () => article.classList.toggle('article-open'));
-
+window.addEventListener('scroll', e => console.log(e));
+window.addEventListener('scroll', () => {
+let last_known_scroll_position = 0;
+last_known_scroll_position = window.scrollY;
+console.log(last_known_scroll_position);
+})
 /* Step 3: return the entire component.*/
 return article;
 }
