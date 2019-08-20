@@ -85,7 +85,24 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  { /* Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new artibl*/
+    title: '37 Companies That Hire Coding Bootcamp Graduates',
+    date: 'July 1st, 2019',
+    firstParagraph: `The real final assignment in any coding bootcamp isn't a capstone project or an app for your portfolio—it's your job search.
+      While some coding bootcamps have extensive partnership programs to help place their graduates, many still rely on graduates 
+      to apply to jobs on their own. Unfortunately, applying to jobs as a new bootcamp graduate is tough. Companies don't always 
+      advertise whether or not they hire coding bootcamp graduates as a policy, and because of this, you can waste days sending 
+      applications to companies that are rejecting you without thought. `,
+
+    secondParagraph: `To provide some transparency, we went through AngelList data and curated a selection of companies with open jobs on AngelList 
+    who have hired a fresh bootcamp graduate in the past.`,
+
+    thirdParagraph: `You can apply to any of these jobs today with the confidence that the company has at some point hired someone who recently graduated 
+    from a coding bootcamp. This list is a living document and will be updated weekly, so if you're on the hunt for your first job after graduating 
+    bootcamp, check back here often.`
   }
+
 ];
 
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
@@ -101,14 +118,55 @@ const data = [
 
   Hint: You will need to use createElement more than once here!
 
-  Your function should take either an object as it's one argument, or 5 separate arguments mapping to each peice of the data object above.
+  Your function should take either an object as it's one argument, or 5 separate arguments mapping to each peice of the data object above.*/
 
-  Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.
+function articleFactory (title, date, firstParagraph, secondParagraph, thirdParagraph) {
+const article = document.createElement('div');
+const header = document.createElement('h2');
+const articleDate = document.createElement('p');
+const firstP = document.createElement('p');
+const secondP = document.createElement('p');
+const thirdP = document.createElement('p');
+const span = document.createElement('span');
 
-  Step 3: return the entire component.
+article.style.overflow = 'auto'
 
-  Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
 
-  Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new artible
+article.classList.add('article');
+articleDate.classList.add('date');
+span.classList.add('expandButton');
 
-*/
+article.appendChild(header);
+article.appendChild(articleDate);
+article.appendChild(firstP);
+article.appendChild(secondP);
+article.appendChild(thirdP);
+article.appendChild(span);
+
+header.textContent = title;
+articleDate.textContent = date;
+firstP.textContent = firstParagraph;
+secondP.textContent = secondParagraph;
+thirdP.textContent = thirdParagraph;
+span.textContent = 'Read more';
+
+/* Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.*/
+span.addEventListener('click', () => article.classList.toggle('article-open'));
+window.addEventListener('scroll', e => console.log(e));
+window.addEventListener('scroll', () => {
+let last_known_scroll_position = 0;
+last_known_scroll_position = window.scrollY;
+console.log(last_known_scroll_position);
+})
+/* Step 3: return the entire component.*/
+return article;
+}
+
+/*  Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.*/
+
+let articles = document.querySelector('.articles');
+data.forEach(item => {
+articles.appendChild(articleFactory(item.title, item.date, item.firstParagraph, item.secondParagraph, item.thirdParagraph))
+})
+
+/* Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new artibl*/
